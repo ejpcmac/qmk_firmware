@@ -50,6 +50,7 @@ quantum/version.h
 
 # ?
 .dep
+.direnv/
 .history/
 build/
 cmake-build-debug
