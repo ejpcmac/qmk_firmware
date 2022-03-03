@@ -72,38 +72,26 @@ ___,  ___,         ___,         ___,         ___,                               
                                                                             XXX,  ___,  ___,      ___,  ___,  XXX),
 };
 
-/* helper function to switch on of the right LED ON/OFF */
-static void indicate_using_led(const uint8_t led, const bool enabled) {
-  if (enabled) {
-    ergodox_right_led_on(led);
-  } else {
-    ergodox_right_led_off(led);
-  }
-}
-
-/* Runs constantly in the background, in a loop */
+// LED handling.
 void matrix_scan_user(void) {
+    // Red LED for Shift.
+    if (get_mods() & MOD_MASK_SHIFT) {
+        ergodox_right_led_on(1);
+    } else {
+        ergodox_right_led_off(1);
+    }
 
-  /* red led for shift */
-  if (keyboard_report->mods & MOD_BIT(KC_LSFT) ||
-    ((get_oneshot_mods() & MOD_BIT(KC_LSFT)) && !has_oneshot_mods_timed_out())) {
-    indicate_using_led(1, true);
-  } else {
-    indicate_using_led(1, false);
-  }
+    // Green LED for Alt.
+    if (get_mods() & MOD_BIT(KC_LALT)) {
+        ergodox_right_led_on(2);
+    } else {
+        ergodox_right_led_off(2);
+    }
 
-  /* green led for alt */
-  if (keyboard_report->mods & MOD_BIT(KC_LALT) ||
-    ((get_oneshot_mods() & MOD_BIT(KC_LALT)) && !has_oneshot_mods_timed_out())) {
-    indicate_using_led(2, true);
-  } else {
-    indicate_using_led(2, false);
-  }
-
-  /* blue led for function mode */
-  if (IS_LAYER_ON(FNAV)) {
-    indicate_using_led(3, true);
-  } else {
-    indicate_using_led(3, false);
-  }
+    // Blue LED for the funtion / navigation layer.
+    if (IS_LAYER_ON(FNAV)) {
+        ergodox_right_led_on(3);
+    } else {
+        ergodox_right_led_off(3);
+    }
 };
