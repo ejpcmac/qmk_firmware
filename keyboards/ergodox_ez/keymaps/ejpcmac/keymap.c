@@ -12,7 +12,9 @@
 // Layers
 #define BEPO 0  // Default layer, for typing in BÉPO.
 #define FNAV 1  // Function / navigation / mouse layer.
+#define NUM 2   // Numpad layer.
 
+// Keymap definitions.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Default layer
 //
@@ -27,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // `-------+-----+-----+-----+-----+-----------,-----------.      ,-----------,-----+-----+-----+-----+-----+-----+-------'
 //   |LCtrl| F/N | LAlt|AltGr|Super|           |PgUp |PgDwn|      |BÉPO | DEL |           |LCtrl|AltGr|Super|  Ç  |RCtrl|
 //   `-----------------------------'     ,-----|-----|-----|      |-----+------+----.     `-----------------------------'
-//                                       |     |Shift|Inser|      | LFn |AltGr|Shift|
+//                                       |     |Shift|Inser|      | NUM |Shift|     |
 //                                       |Space|Enter|-----|      |-----|Enter|Space|
 //                                       |     |     | ESC |      | F/N |     |     |
 //                                       `-----------------'      `-----------------'
@@ -38,8 +40,8 @@ KC_ESC,     BP_A,      BP_U,     BP_I,     BP_E,     BP_COMM,                   
 KC_LSHIFT,  BP_AGRV,   BP_Y,     BP_X,     BP_DOT,   BP_K,     KC_ENTER,                         KC_ENTER,  BP_QUOT,  BP_Q,     BP_G,     BP_H,     BP_F,     BP_W,
 KC_LCTL,    MO(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                                                                   KC_LCTL,  KC_ALGR,  KC_RGUI,  BP_CCED,  KC_RCTL,
                                                                KC_PGUP, KC_PGDOWN,    DF(BEPO),  KC_DEL,
-                                                                        KC_INS,       DF(FNAV),
-                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       MO(FNAV),  ALGR_T(KC_ENTER), SFT_T(KC_SPC)),
+                                                                        KC_INS,       TG(NUM),
+                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       TT(FNAV),  SFT_T(KC_ENTER), KC_SPC),
 
 // TODO: Add print.
 
@@ -70,6 +72,34 @@ ___,  ___,         ___,         ___,         ___,                               
                                                                            KC_HOME,  KC_END,      ___,  ___,
                                                                                         ___,      ___,
                                                                             XXX,  ___,  ___,      ___,  ___,  XXX),
+
+// Numpad layer.
+//
+// ,-------------------------------------------.                              ,-------------------------------------------.
+// |       |     |     |     |     |     |     |                              |     |     |     |     |  /  |     |       |
+// |-------+-----+-----+-----+-----+-----+-----|                              |-----+-----+-----+-----+-----+-----+-------|
+// |       |     |     | Up  |     |     |     |                              |     |  7  |  8  |  9  |  *  |     |       |
+// |-------+-----+-----+-----+-----+-----|     |                              |     |-----+-----+-----+-----+-----+-------|
+// |       |     |Left |Down |Right|     |-----|                              |-----|  4  |  5  |  6  |  -  |     |       |
+// |-------+-----+-----+-----+-----+-----|     |                              |     |-----+-----+-----+-----+-----+-------|
+// |       |     |     |     |     |     |     |                              |     |  1  |  2  |  3  |  +  |     |       |
+// `-------+-----+-----+-----+-----+-----------,-----------.      ,-----------`-----------+-----+-----+-----+-----+-------'
+//   |     |     |     |     |     |           |     |     |      |     |     |           |  0  |  ,  |Enter|     |     |
+//   `-----------------------------'     ,-----|-----|-----|      |-----+-----+-----.     `----------------------------'
+//                                       |     |     |     |      |     |     |     |
+//                                       |     |     |-----|      |-----|     |     |
+//                                       |     |     |     |      |     |     |     |
+//                                       `-----------------'      `-----------------'
+//
+[NUM] = LAYOUT_ergodox_pretty(
+___,  ___,  ___,      ___,      ___,  ___,  ___,                  ___,       BP_LPRN,        BP_RPRN,        ___,            BP_SLSH,   ___,  ___,
+___,  ___,  ___,      KC_UP,    ___,  ___,  ___,                  ___,       LSFT(BP_PLUS),  LSFT(BP_MINS),  LSFT(BP_SLSH),  BP_ASTR,   ___,  ___,
+___,  ___,  KC_LEFT,  KC_DOWN,  KC_RIGHT,   ___,                             LSFT(BP_LPRN),  LSFT(BP_RPRN),  LSFT(BP_AT),    BP_MINS,   ___,  ___,
+___,  ___,  ___,      ___,      ___,        ___,  ___,            KC_ENTER,  LSFT(BP_DQUO),  LSFT(BP_LDAQ),  LSFT(BP_RDAQ),  BP_PLUS,   ___,  ___,
+___,  ___,  ___,      ___,      ___,                                                         LSFT(BP_ASTR),  BP_COMM,        KC_ENTER,  ___,  ___,
+                                            ___,  ___,      ___,      ___,
+                                                  ___,      ___,
+                                      ___,  ___,  ___,      ___,      ___,  ___),
 };
 
 // LED handling.
@@ -93,5 +123,12 @@ void matrix_scan_user(void) {
         ergodox_right_led_on(3);
     } else {
         ergodox_right_led_off(3);
+    }
+
+    // Green LED for the numpad layer.
+    if (IS_LAYER_ON(NUM)) {
+        ergodox_right_led_on(2);
+    } else {
+        ergodox_right_led_off(2);
     }
 };
