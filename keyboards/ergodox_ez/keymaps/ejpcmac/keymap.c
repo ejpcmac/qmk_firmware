@@ -50,11 +50,11 @@ KC_LCTL,    TT(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                             
 // ,-------------------------------------------.                              ,-------------------------------------------.
 // |       | F1  | F2  | F3  | F4  | F5  | F6  |                              | F12 | F6  | F7  | F8  | F9  | F10 |  F11  |
 // |-------+-----+-----+-----+-----+-----+-----|                              |-----+-----+-----+-----+-----+-----+-------|
-// |       |Next |LClic| Up  |RClic|WhUp | Vol |                              |     |PgUp |Home | Up  | End |     |       |
-// |-------+-----+-----+-----+-----+-----| Up  |                              |     |-----+-----+-----+-----+-----+-------|
+// |       |Next |LClic| Up  |RClic|WhUp | Vol |                              |MACRO|PgUp |Home | Up  | End |     |       |
+// |-------+-----+-----+-----+-----+-----| Up  |                              |PLAY1|-----+-----+-----+-----+-----+-------|
 // |       |Prev |Left |Down |Right|WhDn |-----|                              |-----|Left |Down | Up  |Right|     |       |
-// |-------+-----+-----+-----+-----+-----| Vol |                              |     |-----+-----+-----+-----+-----+-------|
-// | ----- |Undo | Cut |Copy |Paste|     |Down |                              |     |     |     |     |     |     |       |
+// |-------+-----+-----+-----+-----+-----| Vol |                              |MACRO|-----+-----+-----+-----+-----+-------|
+// | ----- |Undo | Cut |Copy |Paste|     |Down |                              |PLAY2|MREC1|MREC2|MSTOP|     |     |       |
 // `-------+-----+-----+-----+-----+-----------,-----------.      ,-----------`-----------+-----+-----+-----+-----+-------'
 //   | --- | --- | --- | --- | --- |           |Home | End |      | --- | --- |           | --- | --- | --- |     |BOOT |
 //   `-----------------------------'     ,-----|-----|-----|      |-----+-----+-----.     `----------------------------'
@@ -64,11 +64,11 @@ KC_LCTL,    TT(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                             
 //                                       `-----------------'      `-----------------'
 //
 [FNAV] = LAYOUT_ergodox_pretty(
-XXX,  KC_F1,       KC_F2,       KC_F3,       KC_F4,        KC_F5,          KC_F6,                       KC_F12,  KC_F6,    KC_F7,    KC_F8,    KC_F9,     KC_F10,  KC_F11,
-XXX,  KC_MS_BTN5,  KC_MS_BTN1,  KC_MS_UP,    KC_MS_BTN2,   KC_MS_WH_UP,    KC_VOLU,                     XXX,     KC_PGUP,  KC_HOME,  KC_UP,    KC_END,    XXX,     XXX,
-XXX,  KC_MS_BTN4,  KC_MS_LEFT,  KC_MS_DOWN,  KC_MS_RIGHT,  KC_MS_WH_DOWN,                                        KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXX,     XXX,
-___,  KC_UNDO,     S(KC_DEL),   C(KC_INS),   S(KC_INS),    XXX,            KC_VOLD,                     XXX,     XXX,      XXX,      XXX,      XXX,       XXX,     XXX,
-___,  ___,         ___,         ___,         ___,                                                                          ___,      ___,      ___,       XXX,     QK_BOOT,
+XXX,  KC_F1,       KC_F2,       KC_F3,       KC_F4,        KC_F5,          KC_F6,                       KC_F12,   KC_F6,    KC_F7,    KC_F8,    KC_F9,     KC_F10,  KC_F11,
+XXX,  KC_MS_BTN5,  KC_MS_BTN1,  KC_MS_UP,    KC_MS_BTN2,   KC_MS_WH_UP,    KC_VOLU,                     DM_PLY1,  KC_PGUP,  KC_HOME,  KC_UP,    KC_END,    XXX,     XXX,
+XXX,  KC_MS_BTN4,  KC_MS_LEFT,  KC_MS_DOWN,  KC_MS_RIGHT,  KC_MS_WH_DOWN,                                         KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXX,     XXX,
+___,  KC_UNDO,     S(KC_DEL),   C(KC_INS),   S(KC_INS),    XXX,            KC_VOLD,                     DM_PLY2,  DM_REC1,  DM_REC2,  DM_RSTP,  XXX,       XXX,     XXX,
+___,  ___,         ___,         ___,         ___,                                                                           ___,      ___,      ___,       XXX,     QK_BOOT,
                                                                            KC_HOME,  KC_END,      ___,  ___,
                                                                                         ___,      ___,
                                                                             XXX,  ___,  ___,      ___,  ___,  XXX),
