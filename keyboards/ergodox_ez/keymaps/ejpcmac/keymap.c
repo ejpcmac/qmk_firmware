@@ -38,10 +38,10 @@ BP_DLR,     BP_DQUO,   BP_LDAQ,  BP_RDAQ,  BP_LPRN,  BP_RPRN,  KC_DEL,          
 KC_TAB,     BP_B,      BP_EACU,  BP_P,     BP_O,     BP_EGRV,  KC_BSPC,                          KC_BSPC,   BP_DCIR,  BP_V,     BP_D,     BP_L,     BP_J,     BP_Z,
 KC_ESC,     BP_A,      BP_U,     BP_I,     BP_E,     BP_COMM,                                               BP_C,     BP_T,     BP_S,     BP_R,     BP_N,     BP_M,
 KC_LSHIFT,  BP_AGRV,   BP_Y,     BP_X,     BP_DOT,   BP_K,     KC_ENTER,                         KC_ENTER,  BP_QUOT,  BP_Q,     BP_G,     BP_H,     BP_F,     BP_W,
-KC_LCTL,    TT(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                                                                   KC_LCTL,  KC_ALGR,  KC_RGUI,  BP_CCED,  KC_RCTL,
+KC_LCTL,    MO(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                                                                   KC_LCTL,  KC_ALGR,  KC_RGUI,  BP_CCED,  KC_RCTL,
                                                                KC_PGUP, KC_PGDOWN,    DF(BEPO),  KC_DEL,
                                                                         KC_INS,       TG(NUM),
-                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       MO(FNAV),  SFT_T(KC_ENTER), KC_SPC),
+                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       TT(FNAV),  SFT_T(KC_ENTER), KC_SPC),
 
 // TODO: Add print.
 
