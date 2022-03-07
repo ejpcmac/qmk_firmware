@@ -41,7 +41,7 @@ KC_LSHIFT,  BP_AGRV,   BP_Y,     BP_X,     BP_DOT,   BP_K,     KC_ENTER,        
 KC_LCTL,    MO(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                                                                   KC_LCTL,  KC_ALGR,  KC_RGUI,  BP_CCED,  KC_RCTL,
                                                                KC_PGUP, KC_PGDOWN,    DF(BEPO),  KC_DEL,
                                                                         KC_INS,       TG(NUM),
-                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       TT(FNAV),  SFT_T(KC_ENTER), KC_SPC),
+                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       MO(FNAV),  SFT_T(KC_ENTER), KC_SPC),
 
 // TODO: Add print.
 
@@ -56,11 +56,11 @@ KC_LCTL,    MO(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                             
 // |-------+-----+-----+-----+-----+-----| Vol |                              |MACRO|-----+-----+-----+-----+-----+-------|
 // | ----- |Undo | Cut |Copy |Paste|     |Down |                              |PLAY2|MREC1|MREC2|MSTOP|     |     |       |
 // `-------+-----+-----+-----+-----+-----------,-----------.      ,-----------`-----------+-----+-----+-----+-----+-------'
-//   | --- | --- | --- | --- | --- |           |Home | End |      | --- | --- |           | --- | --- | --- |     |BOOT |
+//   | --- |FLock| --- | --- | --- |           |Home | End |      | --- | --- |           | --- | --- | --- |     |BOOT |
 //   `-----------------------------'     ,-----|-----|-----|      |-----+-----+-----.     `----------------------------'
 //                                       |     |     | --- |      | --- |     |     |
 //                                       |     | --- |-----|      |-----| --- |     |
-//                                       |     |     | --- |      | --- |     |     |
+//                                       |     |     | --- |      |FLock|     |     |
 //                                       `-----------------'      `-----------------'
 //
 [FNAV] = LAYOUT_ergodox_pretty(
@@ -68,10 +68,10 @@ XXX,  KC_F1,       KC_F2,       KC_F3,       KC_F4,        KC_F5,          KC_F6
 XXX,  KC_MS_BTN5,  KC_MS_BTN1,  KC_MS_UP,    KC_MS_BTN2,   KC_MS_WH_UP,    KC_VOLU,                     DM_PLY1,  KC_PGUP,  KC_HOME,  KC_UP,    KC_END,    XXX,     XXX,
 XXX,  KC_MS_BTN4,  KC_MS_LEFT,  KC_MS_DOWN,  KC_MS_RIGHT,  KC_MS_WH_DOWN,                                         KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXX,     XXX,
 ___,  KC_UNDO,     S(KC_DEL),   C(KC_INS),   S(KC_INS),    XXX,            KC_VOLD,                     DM_PLY2,  DM_REC1,  DM_REC2,  DM_RSTP,  XXX,       XXX,     XXX,
-___,  ___,         ___,         ___,         ___,                                                                           ___,      ___,      ___,       XXX,     QK_BOOT,
+___,  TG(FNAV),    ___,         ___,         ___,                                                                           ___,      ___,      ___,       XXX,     QK_BOOT,
                                                                            KC_HOME,  KC_END,      ___,  ___,
                                                                                         ___,      ___,
-                                                                            XXX,  ___,  ___,      ___,  ___,  XXX),
+                                                                            XXX,  ___,  ___,      TG(FNAV),  ___,  XXX),
 
 // Numpad layer.
 //
