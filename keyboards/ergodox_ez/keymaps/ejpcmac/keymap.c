@@ -29,8 +29,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // `-------+-----+-----+-----+-----+-----------,-----------.      ,-----------,-----+-----+-----+-----+-----+-----+-------'
 //   |LCtrl| F/N | LAlt|AltGr|Super|           |PgUp |PgDwn|      |BÉPO | DEL |           |LCtrl|AltGr|Super|  Ç  |RCtrl|
 //   `-----------------------------'     ,-----|-----|-----|      |-----+------+----.     `-----------------------------'
-//                                       |     |Shift|Inser|      | NUM |Shift|     |
-//                                       |Space|Enter|-----|      |-----|Enter|Space|
+//                                       |     |     |Inser|      | NUM |     |     |
+//                                       |Space|Shift|-----|      |-----|Shift|Space|
 //                                       |     |     | ESC |      | F/N |     |     |
 //                                       `-----------------'      `-----------------'
 [BEPO] = LAYOUT_ergodox_pretty(
@@ -41,7 +41,7 @@ KC_LSHIFT,  BP_AGRV,   BP_Y,     BP_X,     BP_DOT,   BP_K,     KC_ENTER,        
 KC_LCTL,    MO(FNAV),  KC_LALT,  KC_ALGR,  KC_LGUI,                                                                   KC_LCTL,  KC_ALGR,  KC_RGUI,  BP_CCED,  KC_RCTL,
                                                                KC_PGUP, KC_PGDOWN,    DF(BEPO),  KC_DEL,
                                                                         KC_INS,       TG(NUM),
-                                              KC_SPC, SFT_T(KC_ENTER),  KC_ESC,       MO(FNAV),  SFT_T(KC_ENTER), KC_SPC),
+                                                    KC_SPC, KC_LSHIFT,  KC_ESC,       MO(FNAV),  KC_RSHIFT, KC_SPC),
 
 // TODO: Add print.
 
