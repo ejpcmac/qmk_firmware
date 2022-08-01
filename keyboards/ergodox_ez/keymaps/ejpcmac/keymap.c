@@ -104,20 +104,6 @@ ___,  ___,  ___,      ___,      ___,                                            
 
 // LED handling.
 void matrix_scan_user(void) {
-    // Red LED for Shift.
-    if (get_mods() & MOD_MASK_SHIFT) {
-        ergodox_right_led_on(1);
-    } else {
-        ergodox_right_led_off(1);
-    }
-
-    // Green LED for Alt.
-    if (get_mods() & MOD_BIT(KC_LALT)) {
-        ergodox_right_led_on(2);
-    } else {
-        ergodox_right_led_off(2);
-    }
-
     // Blue LED for the funtion / navigation layer.
     if (IS_LAYER_ON(FNAV)) {
         ergodox_right_led_on(3);
